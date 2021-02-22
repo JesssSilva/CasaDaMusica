@@ -10,9 +10,11 @@ function home() {
       <img src={Logo} alt=""/>
       <nav>
         <ul>
+          <Link to ="/Relatorio" >
           <li>
             Relatório
           </li>
+          </Link>
           <li>
             Aulas
           </li>

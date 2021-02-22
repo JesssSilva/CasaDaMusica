@@ -33,7 +33,7 @@ export const Container = styled.div`
       border-radius:15px;
       a{
         width:30%;
-       height:10%; 
+        height:10%; 
       }
       button{
        width:100%;
