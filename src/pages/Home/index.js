@@ -15,9 +15,11 @@ function home() {
             Relatório
           </li>
           </Link>
+          <Link to ="/Aulas">
           <li>
             Aulas
           </li>
+          </Link>
           < Link  to = "/Cadastro" >
             <li>
               Cadastro
