@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Containers } from "./styles";
 import Logo from "../../assets/Logo.svg";
 import { Link } from "react-router-dom";
 import Cadastro from "../Cadastro";
-
-
+import List from "../ListStudents";
 function Home() {
-  const [page, setPage] = useState(<Cadastro />);
+  const [page, setPage] = useState(<List />);
+  useEffect(() => {
+    let students;
+    let JSONS = localStorage.getItem("students");
+    students = JSON.parse(JSONS);
+    if (students) {
+      setPage(<List />);
+    } else {
+      setPage(<Cadastro />);
+    }
+   
+  }, []);
 
   function handleClick(op) {
     if (op === 0) {
@@ -30,30 +40,26 @@ function Home() {
   return (
     <Containers>
       <header>
-        <img src={Logo} alt="" />
+        <Link onClick={()=>{setPage(<List />);}}>
+          <img src={Logo} alt="" />
+        </Link>
+
         <nav>
           <ul>
-            <Link to="/Aulas">
+            {/* <Link to="/Aulas">
               <li>Aulas</li>
-            </Link>
+            </Link> */}
 
             <li onClick={() => handleClick(0)}>Cadastros</li>
 
-            <Link to="/Relatorio">
+            {/* <Link to="/Relatorio">
               <li>Relatório</li>
-            </Link>
+            </Link> */}
             <li>Sair</li>
           </ul>
         </nav>
       </header>
-      <div className="pages">
-        {page && (
-          <>
-           
-            {page}
-          </>
-        )}
-      </div>
+      <div className="pages">{page && <>{page}</>}</div>
     </Containers>
   );
 }

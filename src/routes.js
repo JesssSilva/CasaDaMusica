@@ -21,7 +21,7 @@ import {
           <Route path="/Home" component={Home} />
           <Route path="/Cadastro" component={Cadprof} />
           <Route path="/Relatorio" component={Relatorio} />
-          <Route path="/Relatorio2" component={Relatorio2} />
+          <Route path="/Relatorio2/:id" component={Relatorio2} />
           <Route path="/Aulas" component={Aulas} />
       </Switch>
     </Router>

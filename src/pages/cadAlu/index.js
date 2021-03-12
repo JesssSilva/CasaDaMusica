@@ -39,7 +39,7 @@ function CadAluno() {
             name="date-of-birth"
             placeholder="Data de Nascimento"
           />
-          <Input type="Email" name="e-mail" placeholder="Email" />
+          <Input type="Email" name="email" placeholder="Email" />
           <Input type="password" name="password" placeholder="Senha" />
           <button type="submit">Salvar</button>
         </Form>

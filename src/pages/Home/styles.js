@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Containers = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background-color: #c4c4c4;
+
   header {
     width: 100%;
     height: 10%;
@@ -11,8 +12,12 @@ export const Containers = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    img {
+    a {
       width: 10%;
+      height: 100%;
+    }
+    a img {
+      width: 100%;
       height: 100%;
     }
     nav {
@@ -26,14 +31,15 @@ export const Containers = styled.div`
         margin: 0px;
         list-style: none;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-end;
         a {
           text-decoration: none;
         }
         li {
-          width: 74px;
-          height: 32px;
+          width: 85px;
+          height: 40px;
           display: flex;
+          margin-left: 15px;
           background-color: black;
           color: white;
           align-items: center;
@@ -50,7 +56,8 @@ export const Containers = styled.div`
   }
   .pages {
     width: 100%;
-    min-height:90%;
-    overflow:auto;
+    min-height: 90%;
+    max-height: 620px;
+    overflow: auto;
   }
 `;

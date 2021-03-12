@@ -2,7 +2,7 @@ import React from "react";
 import { FiUser, FiPlusCircle } from "react-icons/fi";
 import { Container } from "./styles";
 
-function Relatorio2() {
+function Relatorio2(props) {
   return (
     <Container>
       <main>
