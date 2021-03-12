@@ -31,15 +31,15 @@ export const Containers = styled.div`
         margin: 0px;
         list-style: none;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-evenly;
         a {
           text-decoration: none;
+          width: 150px;
         }
         li {
-          width: 85px;
+          width: 150px;
           height: 40px;
           display: flex;
-          margin-left: 15px;
           background-color: black;
           color: white;
           align-items: center;

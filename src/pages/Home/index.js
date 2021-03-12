@@ -16,7 +16,6 @@ function Home() {
     } else {
       setPage(<Cadastro />);
     }
-   
   }, []);
 
   function handleClick(op) {
@@ -40,15 +39,23 @@ function Home() {
   return (
     <Containers>
       <header>
-        <Link onClick={()=>{setPage(<List />);}}>
+        <Link
+          onClick={() => {
+            setPage(<List />);
+          }}
+        >
           <img src={Logo} alt="" />
         </Link>
 
         <nav>
           <ul>
-            {/* <Link to="/Aulas">
-              <li>Aulas</li>
-            </Link> */}
+            <Link
+              onClick={() => {
+                setPage(<List />);
+              }}
+            >
+              <li>Lista de Alunos</li>
+            </Link>
 
             <li onClick={() => handleClick(0)}>Cadastros</li>
 
