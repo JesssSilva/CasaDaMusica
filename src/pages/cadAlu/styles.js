@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Professor = styled.div`
+export const Aluno = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@ export const Professor = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: transparent;
-    
+    width:100%;
     img {
       width: 100%;
       height: 100%;

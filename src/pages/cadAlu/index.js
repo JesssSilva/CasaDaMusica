@@ -2,23 +2,23 @@ import React from "react";
 
 import { Form, Input } from "@rocketseat/unform";
 
-import { Professor } from "./styles";
+import { Aluno } from "./styles";
 
-function Cadprof() {
-  async function saveTeacher(data) {
+function CadAluno() {
+  async function saveStudent(data) {
     if (data) {
       if (data.name) {
-        let teachers = [];
-        let JSONS = localStorage.getItem("teachers");
-        teachers = JSON.parse(JSONS);
-        if (teachers) {
-          teachers.push(data);
-          localStorage.setItem("teachers", JSON.stringify(teachers));
-          alert('professor cadastrado com sucesso');
+        let students = [];
+        let JSONS = localStorage.getItem("students");
+        students = JSON.parse(JSONS);
+        if (students) {
+          students.push(data)
+          localStorage.setItem("students", JSON.stringify(students));
+          alert('Aluno cadastrado com sucesso');
         } else {
-          teachers = [data];
-          localStorage.setItem("teachers", JSON.stringify(teachers));
-          alert('professor cadastrado com sucesso');
+          students = [data];
+          localStorage.setItem("students", JSON.stringify(students));
+          alert('Aluno cadastrado com sucesso');
         }
       } else {
         alert("nome é obrigatório");
@@ -26,10 +26,10 @@ function Cadprof() {
     }
   }
   return (
-    <Professor>
+    <Aluno>
       <main>
-        <h1>Cadastro de Professores</h1>
-        <Form onSubmit={saveTeacher}>
+        <h1>Cadastro de Alunos</h1>
+        <Form onSubmit={saveStudent}>
           <Input type="Nome" name="name" placeholder="Nome" />
           <Input type="Telefone" name="phone" placeholder="Telefone/Cel" />
           <Input type="Endereco" name="endereco" placeholder="Endereço" />
@@ -44,8 +44,8 @@ function Cadprof() {
           <button type="submit">Salvar</button>
         </Form>
       </main>
-    </Professor>
+    </Aluno>
   );
 }
 
-export default Cadprof;
+export default CadAluno;

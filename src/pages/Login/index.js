@@ -3,7 +3,7 @@ import Fones from "../../assets/Fones.svg";
 import { Link } from "react-router-dom";
 import { Container } from "./styles";
 
-function home() {
+function Login() {
   return (
     <Container>
       <main>
@@ -20,4 +20,4 @@ function home() {
   );
 }
 
-export default home;
+export default Login;
