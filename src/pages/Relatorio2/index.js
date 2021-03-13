@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { FiUser, FiPlusCircle, FiArrowLeft } from "react-icons/fi";
 import { Container } from "./styles";
@@ -22,6 +23,17 @@ function Relatorio2(props) {
     let reports;
     let JSONSreports = localStorage.getItem("reports");
     reports = JSON.parse(JSONSreports);
+    // if (reports) {
+    //   reports.forEach((r) => {
+    //     console.log(r);
+    //     if (r.data_report && r.description) {
+    //       document.getElementById(`data${r.id_report}`).value = r.data_report;
+    //       document.getElementById(`descricao${r.id_report}`).value =
+    //         r.description;
+    //     }
+    //   });
+    // }
+
     setReport(reports);
   }
 
@@ -124,13 +136,18 @@ function Relatorio2(props) {
               <article key={index}>
                 <div className="dateLabel">
                   <label>Data:</label>
-                  <input type="date" name="data" id={`data${index}`} />
+                  <input
+                    type="date"
+                    name="data"
+                    id={`data${index}`}
+                  />
                 </div>
                 <div className="description">
                   <label>Descrição:</label>
                   <textarea
                     name="descricao"
                     id={`descricao${index}`}
+                    rows="5" cols="33"
                   ></textarea>
                 </div>
                 <div className="groupButtons">

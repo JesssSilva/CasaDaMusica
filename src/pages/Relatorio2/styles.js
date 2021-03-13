@@ -16,7 +16,7 @@ export const Container = styled.div`
     a {
       height: 100%;
       text-decoration: none;
-      color:black;
+      color: black;
     }
     .groupMenu {
       display: flex;
@@ -34,7 +34,7 @@ export const Container = styled.div`
 
     header {
       width: 100%;
-      height: 25%;
+      height: 30%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -63,67 +63,73 @@ export const Container = styled.div`
         }
       }
     }
-    .articles{
-      width:100%;
-      height:75%;
-      overflow:auto;
-      article {
+    .articles {
       width: 100%;
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 35%;
-      padding: 15px;
-      border-bottom: 1px solid #000;
-      .dateLabel {
-        display: flex;
-        align-items: center;
-        input {
-          height: 45px;
-        }
-      }
-      .description {
+      height: 75%;
+      overflow: auto;
+
+      article {
+        width: 100%;
+        height: 40%;
+        margin-top: 15px;
         display: flex;
         flex-direction: column;
-        height: 100%;
-        margin-top: 10px;
-        textarea {
-          width: 100%;
-          height: 100%;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #000;
+        .dateLabel {
+          display: flex;
+          align-items: center;
+          input {
+            height: 45px;
+          }
         }
-      }
-      .groupButtons {
-        display: flex;
-        width: 100%;
-        height: 50px;
-        margin: 15px 0;
-        justify-content: flex-end;
-        button {
-          width: 150px;
+        .description {
+          display: flex;
+          flex-direction: column;
           height: 100%;
-          margin-left: 15px;
-          border-radius: 16px;
-          border: 0;
+          margin-top: 10px;
 
-          :hover {
-            cursor: pointer;
+          label {
+            height: 40px;
+          }
+          textarea {
+            width: 100%;
+          
+            
           }
         }
-        button.salvar {
-          :hover {
-            background-color: green;
-            cursor: pointer;
+        .groupButtons {
+          display: flex;
+          width: 100%;
+          height: 50px;
+          margin: 5px 0;
+          justify-content: flex-end;
+          button {
+            width: 150px;
+            height: 100%;
+            margin-left: 15px;
+            border-radius: 16px;
+            border: 0;
+
+            :hover {
+              cursor: pointer;
+            }
           }
-        }
-        button.apagar {
-          :hover {
-            background-color: red;
-            cursor: pointer;
+          button.salvar {
+            :hover {
+              background-color: green;
+              cursor: pointer;
+            }
+          }
+          button.apagar {
+            :hover {
+              background-color: red;
+              cursor: pointer;
+            }
           }
         }
       }
-    }
     }
   }
 `;

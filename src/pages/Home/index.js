@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Containers } from "./styles";
 import Logo from "../../assets/Logo.svg";
-import { Link } from "react-router-dom";
+
 import Cadastro from "../Cadastro";
 import List from "../ListStudents";
 function Home() {
@@ -39,17 +39,17 @@ function Home() {
   return (
     <Containers>
       <header>
-        <Link
+        <img
+          src={Logo}
+          alt=""
           onClick={() => {
             setPage(<List />);
           }}
-        >
-          <img src={Logo} alt="" />
-        </Link>
+        />
 
         <nav>
           <ul>
-            <Link
+            <li
               onClick={() => {
                 let students;
                 let JSONS = localStorage.getItem("students");
@@ -57,12 +57,12 @@ function Home() {
                 if (students) {
                   setPage(<List />);
                 } else {
-                 alert('Não há alunos Cadastrados')
+                  alert("Não há alunos Cadastrados");
                 }
               }}
             >
-              <li>Lista de Alunos</li>
-            </Link>
+              Lista de Alunos
+            </li>
 
             <li onClick={() => handleClick(0)}>Cadastros</li>
 

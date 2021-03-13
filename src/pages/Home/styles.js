@@ -12,13 +12,12 @@ export const Containers = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    a {
+    img {
       width: 10%;
       height: 100%;
-    }
-    a img {
-      width: 100%;
-      height: 100%;
+      :hover{
+        cursor: pointer;
+      }
     }
     nav {
       width: 60%;
