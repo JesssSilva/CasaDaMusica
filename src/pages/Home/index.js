@@ -51,7 +51,14 @@ function Home() {
           <ul>
             <Link
               onClick={() => {
-                setPage(<List />);
+                let students;
+                let JSONS = localStorage.getItem("students");
+                students = JSON.parse(JSONS);
+                if (students) {
+                  setPage(<List />);
+                } else {
+                 alert('Não há alunos Cadastrados')
+                }
               }}
             >
               <li>Lista de Alunos</li>

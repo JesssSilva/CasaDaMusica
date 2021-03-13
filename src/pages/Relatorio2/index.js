@@ -1,10 +1,97 @@
-import React from "react";
-import { FiUser, FiPlusCircle } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { FiUser, FiPlusCircle, FiArrowLeft } from "react-icons/fi";
 import { Container } from "./styles";
-
+import { Link } from "react-router-dom";
 function Relatorio2(props) {
+  const [student, setStudents] = useState([]);
+  const [report, setReport] = useState([]);
+  useEffect(() => {
+    getInfo();
+    getReports();
+  }, []);
+
+  function getInfo() {
+    let id = props.match.params.id;
+    let students;
+    let JSONS = localStorage.getItem("students");
+    students = JSON.parse(JSONS);
+    setStudents(students[id]);
+  }
+
+  function getReports() {
+    let reports;
+    let JSONSreports = localStorage.getItem("reports");
+    reports = JSON.parse(JSONSreports);
+    setReport(reports);
+  }
+
+  function handleAddReport() {
+    let data = {
+      id_aluno: null,
+      id_report: null,
+      data_report: null,
+      description: null,
+    };
+    let reports = [];
+    let JSONS = localStorage.getItem("reports");
+    reports = JSON.parse(JSONS);
+    if (!reports) {
+      reports = [data];
+      localStorage.setItem("reports", JSON.stringify(reports));
+      getReports();
+    } else {
+      reports.push(data);
+      localStorage.setItem("reports", JSON.stringify(reports));
+      getReports();
+    }
+  }
+
+  function handleDelReport(id) {
+    console.log(id);
+    report.splice(id, 1);
+    setReport(report);
+    localStorage.setItem("reports", JSON.stringify(report));
+    alert("Relatório removido com sucesso");
+    getReports();
+  }
+
+  function handleSaveReport(id) {
+    console.log(id);
+    let data_report = document.getElementById(`data${id}`).value;
+    let description = document.getElementById(`descricao${id}`).value;
+    let id_aluno = props.match.params.id;
+    let id_report = id;
+
+    let data = {
+      id_aluno,
+      id_report,
+      data_report,
+      description,
+    };
+
+    let reports = [];
+    let JSONS = localStorage.getItem("reports");
+    reports = JSON.parse(JSONS);
+
+    reports[id].id_aluno = data.id_aluno;
+    reports[id].id_report = data.id_report;
+    reports[id].data_report = data.data_report;
+    reports[id].description = data.description;
+
+    reports[id] = data;
+    localStorage.setItem("reports", JSON.stringify(reports));
+    getReports();
+  }
   return (
     <Container>
+      <div className="menu">
+        <Link to="/Home">
+          <div className="groupMenu">
+            <FiArrowLeft id="arrow" size={45} />
+            <h2>Voltar</h2>
+          </div>
+        </Link>
+      </div>
       <main>
         <header>
           <div className="groupData">
@@ -12,30 +99,61 @@ function Relatorio2(props) {
             <div className="dados">
               <div className="info">
                 <label>Nome:</label>
-                Mateus Bruno da Silva
+                {student.name}
               </div>
               <div className="info">
                 <label>Aula:</label>
-                Teclado
               </div>
               <div className="info">
                 <label>Telefone:</label>
-                (18)99183-6542
+                {student.phone}
               </div>
             </div>
           </div>
-          <FiPlusCircle id="plus" size={80} />
+          <FiPlusCircle
+            onClick={() => {
+              handleAddReport();
+            }}
+            id="plus"
+            size={80}
+          />
         </header>
-        <article>
-          <div className="dateLabel">
-            <label>Data:</label>
-            <input type="date" id="" />
-          </div>
-          <div className="description">
-            <label>Descrição:</label>
-            <textarea></textarea>
-          </div>
-        </article>
+        <div className="articles">
+          {report &&
+            report.map((reports, index) => (
+              <article key={index}>
+                <div className="dateLabel">
+                  <label>Data:</label>
+                  <input type="date" name="data" id={`data${index}`} />
+                </div>
+                <div className="description">
+                  <label>Descrição:</label>
+                  <textarea
+                    name="descricao"
+                    id={`descricao${index}`}
+                  ></textarea>
+                </div>
+                <div className="groupButtons">
+                  <button
+                    className="salvar"
+                    onClick={() => {
+                      handleSaveReport(index);
+                    }}
+                  >
+                    Salvar
+                  </button>
+                  <button
+                    className="apagar"
+                    onClick={() => {
+                      handleDelReport(index);
+                    }}
+                  >
+                    Apagar
+                  </button>
+                </div>
+              </article>
+            ))}
+        </div>
       </main>
     </Container>
   );
